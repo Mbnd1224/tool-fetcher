@@ -1,0 +1,36 @@
+name: Download gh-net Direct
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download gh-net from static URL
+        run: |
+          echo "Downloading gh-net.exe from static URL..."
+          curl -L -o gh-net.zip https://github.com/github/gh-net/releases/download/v1.2.2/gh-net_windows_amd64.zip
+          if [ $? -ne 0 ]; then
+            echo "Download failed with exit code $?"
+            exit 1
+          fi
+          echo "Extracting gh-net.exe..."
+          unzip -o gh-net.zip -d .
+          # Find the executable in any subfolder and move it to root
+          find . -name "gh-net.exe" -exec mv {} ./gh-net.exe \;
+          # Clean up zip file and any remaining folders
+          rm -rf gh-net.zip gh-net_* 2>/dev/null
+          ls -la gh-net.exe
+
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Action Bot"
+          git config user.email "action@github.com"
+          git add gh-net.exe
+          git commit -m "Add gh-net.exe via direct download" || echo "No changes to commit"
+          git push
