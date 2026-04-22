@@ -1,0 +1,23 @@
+name: Fetch GH CLI
+on: workflow_dispatch
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Download and Extract GH (Windows)
+        run: |
+          wget https://github.com/cli/cli/releases/download/v2.47.0/gh_2.47.0_windows_amd64.zip -O gh.zip
+          unzip gh.zip
+          mv gh_2.47.0_windows_amd64/bin/gh.exe ./gh.exe
+          rm -rf gh_* gh.zip
+
+      - name: Commit and Push Binary
+        run: |
+          git config --global user.name "GitHub Action Bot"
+          git config --global user.email "action@github.com"
+          git add gh.exe
+          git commit -m "Add gh executable via Action"
+          git push
