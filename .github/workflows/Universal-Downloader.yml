@@ -1,0 +1,43 @@
+name: Universal Downloader
+on:
+  workflow_dispatch:
+    inputs:
+      file_url:
+        description: 'URL of the file to download'
+        required: true
+        type: string
+      file_name:
+        description: 'Desired Output Name (e.g., app.zip, video.mp4)'
+        required: true
+        type: string
+
+jobs:
+  download-and-commit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Download File
+        run: |
+          wget -q "${{ github.event.inputs.file_url }}" -O "${{ github.event.inputs.file_name }}"
+          
+      - name: Split Large Files (Bypass 100MB Limit)
+        run: |
+          FILE_SIZE=$(stat -c%s "${{ github.event.inputs.file_name }}")
+          MAX_SIZE=99614720 # 95 MB in bytes
+          
+          if [ $FILE_SIZE -gt $MAX_SIZE ]; then
+            split -b 90M "${{ github.event.inputs.file_name }}" "${{ github.event.inputs.file_name }}.part"
+            rm "${{ github.event.inputs.file_name }}"
+          fi
+
+      - name: Commit and Push to Repo
+        run: |
+          git config --global user.name "Download Bot"
+          git config --global user.email "bot@github.com"
+          git add -A
+          git commit -m "Downloaded: ${{ github.event.inputs.file_name }}"
+          git push
