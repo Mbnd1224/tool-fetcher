@@ -1,23 +1,34 @@
 name: Fetch GH CLI
 on: workflow_dispatch
+
 jobs:
   download-and-commit:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # دادن مجوز صریح برای نوشتن فایل در مخزن
+
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # ارتقا به نسخه 4 برای رفع هشدار Node.js
 
       - name: Download and Extract GH (Windows)
         run: |
-          wget https://github.com/cli/cli/releases/download/v2.47.0/gh_2.47.0_windows_amd64.zip -O gh.zip
-          unzip gh.zip
-          mv gh_2.47.0_windows_amd64/bin/gh.exe ./gh.exe
-          rm -rf gh_* gh.zip
+          # دانلود نسخه پایدار 2.48.0
+          wget -q "https://github.com/cli/cli/releases/download/v2.48.0/gh_2.48.0_windows_amd64.zip" -O gh.zip
+          
+          # اکسترکت کردن فایل زیپ
+          unzip -q gh.zip
+          
+          # جستجوی هوشمند فایل gh.exe در هر پوشه‌ای که هست و انتقال آن به مسیر اصلی
+          find . -type f -name "gh.exe" -exec mv {} ./gh.exe \;
+          
+          # پاک‌سازی فایل‌های اضافه برای سبک ماندن مخزن
+          rm -rf gh_2.48.0_windows_amd64 gh.zip
 
       - name: Commit and Push Binary
         run: |
           git config --global user.name "GitHub Action Bot"
           git config --global user.email "action@github.com"
           git add gh.exe
-          git commit -m "Add gh executable via Action"
+          git commit -m "Add gh executable via Action (Fixed)"
           git push
