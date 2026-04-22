@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/github/gh-net/releases/download/v0.12.4/windows-amd64.exe'
+        description: 'https://github.com/coder/wush/releases/download/v0.4.1/wush_0.4.1_windows_amd64.zip'
         required: true
         type: string
       file_name:
-        description: 'gh-net.zip'
+        description: 'wush_0.4.1_windows_amd64.zip'
         required: true
         type: string
 
