@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'URL of the file to download'
+        description: 'https://github.com/github/gh-net/releases/download/v0.12.4/windows-amd64.exe'
         required: true
         type: string
       file_name:
-        description: 'Desired Output Name (e.g., app.zip, video.mp4)'
+        description: 'gh-net.zip'
         required: true
         type: string
 
