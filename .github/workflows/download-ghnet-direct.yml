@@ -14,7 +14,7 @@ jobs:
       - name: Download gh-net from static URL
         run: |
           echo "Downloading gh-net.exe from static URL..."
-          curl -L -o gh-net.zip https://github.com/github/gh-net/releases/download/v1.2.2/gh-net_windows_amd64.zip
+          curl -L -o gh-net.zip https://github.com/github/gh-net/releases/download/v0.12.4/windows-amd64.exe
           if [ $? -ne 0 ]; then
             echo "Download failed with exit code $?"
             exit 1
