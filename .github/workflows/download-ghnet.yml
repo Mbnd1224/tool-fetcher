@@ -1,0 +1,26 @@
+name: Download gh-net
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download gh-net for Windows
+        run: |
+          curl -L -o gh-net.zip https://github.com/github/gh-net/releases/latest/download/gh-net_windows_amd64.zip
+          unzip -j gh-net.zip "*/gh-net.exe" -d .
+          rm gh-net.zip
+
+      - name: Commit and push
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add gh-net.exe
+          git commit -m "Add gh-net.exe" || echo "No changes to commit"
+          git push
