@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://psiphon.ca/PsiphonAndroid.apk'
+        description: ' https://s3.amazonaws.com/psiphon/web/z8hg-zgfk-wknj/PsiphonAndroid.apk'
         required: true
         type: string
       file_name:
-        description: 'PsiphonAndroid.apk'
+        description: 'PsiphonproAndroid.apk'
         required: true
         type: string
 
