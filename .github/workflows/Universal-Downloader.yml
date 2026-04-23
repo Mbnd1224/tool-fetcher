@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/XTLS/Xray-core/releases/download/v26.3.27/Xray-windows-64.zip'
+        description: 'https://github.com/shahinst/cdn-ip-scanner/releases/download/Latest/CDN.IP.Scanner.V2.0.SourceCode.zip'
         required: true
         type: string
       file_name:
-        description: 'Xray-windows-64.zip'
+        description: 'CDN.IP.Scanner.V2.0.SourceCode.zip'
         required: true
         type: string
 
