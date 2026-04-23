@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/Rainman69/SNISPF/releases/download/v1.9.0/snispf-windows-x86_64.exe'
+        description: 'https://github.com/mirarr-app/network-checker/releases/download/0.5.0/rdnbenet-windows.zip'
         required: true
         type: string
       file_name:
-        description: 'snispf-windows-x86_64.exe'
+        description: 'rdnbenet-windows.zip'
         required: true
         type: string
 
