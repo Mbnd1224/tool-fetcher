@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/2dust/v2rayNG/releases/download/2.0.18/v2rayNG_2.0.18_universal.apk'
+        description: 'https://github.com/shirokhorshid/shirokhorshid-android/releases/download/v2026.03.17-75fc6ed/ShirOKhorshid-2026.03.17.apk'
         required: true
         type: string
       file_name:
-        description: 'v2rayNG_2.0.18_universal.apk'
+        description: 'ShirOKhorshid-2026.03.17.apk'
         required: true
         type: string
 
