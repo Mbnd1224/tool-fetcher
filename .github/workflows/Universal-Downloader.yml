@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/coder/wush/releases/download/v0.4.1/wush_0.4.1_windows_amd64.zip'
+        description: 'https://github.com/Rainman69/SNISPF/releases/download/v1.9.0/snispf-windows-x86_64.exe'
         required: true
         type: string
       file_name:
-        description: 'wush_0.4.1_windows_amd64.zip'
+        description: 'snispf-windows-x86_64.exe'
         required: true
         type: string
 
