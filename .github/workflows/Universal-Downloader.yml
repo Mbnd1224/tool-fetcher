@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://s3.amazonaws.com/psiphon/web/z8hg-zgfk-wknj/PsiphonAndroid.apk'
+        description: 'https://download.apkpure.net/com.v2ray.ang-2.0.18-18.apk'
         required: true
         type: string
       file_name:
-        description: 'PsiphonproAndroid.apk'
+        description: 'com.v2ray.ang-2.0.18-18.apk'
         required: true
         type: string
 
