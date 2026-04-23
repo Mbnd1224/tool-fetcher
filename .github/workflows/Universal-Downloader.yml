@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/shahinst/cdn-ip-scanner/releases/download/Latest/CDN.IP.Scanner.V2.0.SourceCode.zip'
+        description: 'https://github.com/shahinst/cdn-ip-scanner/releases/download/Latest/CDN-IP-Scanner.V2.0.Windows.zip'
         required: true
         type: string
       file_name:
-        description: 'CDN.IP.Scanner.V2.0.SourceCode.zip'
+        description: 'CDN-IP-Scanner.V2.0.Windows.zip'
         required: true
         type: string
 
