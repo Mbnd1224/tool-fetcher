@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/shirokhorshid/shirokhorshid-android/releases/download/v2026.03.17-75fc6ed/ShirOKhorshid-2026.03.17.apk'
+        description: 'https://github.com/code3-dev/CCloud/releases/download/v2.0.0/CCloud-universal.apk'
         required: true
         type: string
       file_name:
-        description: 'ShirOKhorshid-2026.03.17.apk'
+        description: 'CCloud-universal.apk'
         required: true
         type: string
 
