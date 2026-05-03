@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/code3-dev/CCloud/releases/download/v2.0.0/CCloud-universal.apk'
+        description: 'https://github.com/code3-dev/CCloud-GUI/releases/download/v1.0.4/CCloud-windows-portable.zip'
         required: true
         type: string
       file_name:
-        description: 'CCloud-universal.apk'
+        description: 'CCloud-windows-portable.zip'
         required: true
         type: string
 
