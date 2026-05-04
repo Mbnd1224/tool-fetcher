@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/code3-dev/CCloud-GUI/releases/download/v1.0.4/CCloud-windows-portable.zip'
+        description: 'https://github.com/Liubsyy/M3U8Quicker/releases/download/1.0.9/M3U8.Quicker_1.0.9_windows_x64_setup.exe'
         required: true
         type: string
       file_name:
-        description: 'CCloud-windows-portable.zip'
+        description: 'M3U8.Quicker_1.0.9_windows_x64_setup.exe'
         required: true
         type: string
 
