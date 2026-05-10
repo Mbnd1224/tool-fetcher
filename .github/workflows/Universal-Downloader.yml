@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.9.18/mhrv-rs-windows-amd64.zip'
+        description: 'https://github.com/maattyi/MasterHttpRelayVpnGUI/releases/download/tag2/MasterRelayVPN-v1.1.0.zip'
         required: true
         type: string
       file_name:
-        description: 'mhrv-rs-windows-amd64.zip'
+        description: 'MasterRelayVPN-v1.1.0.zip'
         required: true
         type: string
 
