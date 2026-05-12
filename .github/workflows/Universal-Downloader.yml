@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       file_url:
-        description: 'https://github.com/maattyi/MasterHttpRelayVpnGUI/releases/download/tag2/MasterRelayVPN-v1.1.0.zip'
+        description: 'https://github.com/therealaleph/MasterHttpRelayVPN-RUST/releases/download/v1.9.22/mhrv-rs-android-arm64-v8a-v1.9.22.apk'
         required: true
         type: string
       file_name:
-        description: 'MasterRelayVPN-v1.1.0.zip'
+        description: 'mhrv-rs-android-arm64-v8a-v1.9.22.apk'
         required: true
         type: string
 
